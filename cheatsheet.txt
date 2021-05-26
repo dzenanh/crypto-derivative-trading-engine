@@ -1,0 +1,13 @@
+# create a new virtual environment named "env1"
+python3 -m venv env1
+
+# activate env1
+. env1/bin/activate
+
+# persist list of dependencies
+pip3 freeze > requirements.txt
+# leaving out install breaking dep for Ubuntu in venv:
+pip freeze | grep -v "pkg-resources" > requirements.txt
+
+# install dependencies
+pip3 install -r requirements.txt
